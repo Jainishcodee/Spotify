@@ -111,6 +111,39 @@ flutter run
 3. **iOS build issues**: Ensure Xcode is properly installed and updated
 4. **Permission issues**: On macOS, you might need to run `sudo xcode-select --switch /Applications/Xcode.app`
 
+### Current Build Issues & Solutions
+
+#### Android Gradle Error: "Could not find or load main class '-Xmx64m'"
+
+**Problem**: The Gradle wrapper scripts have incorrect JVM options formatting.
+
+**Solution**: 
+1. Run `find_flutter.bat` to find your Flutter SDK path
+2. Update `android/local.properties` with the correct Flutter SDK path
+3. Run `build_android.bat` to build the project
+
+#### iOS "No schemes available for Runner.xcodeproj"
+
+**Problem**: Missing iOS project scheme files and configuration.
+
+**Solution**: 
+1. The iOS project files have been created, but you need macOS with Xcode to build iOS
+2. For now, focus on Android build which works on Windows
+
+### Quick Fix Commands
+
+```bash
+# Find Flutter SDK path
+find_flutter.bat
+
+# Build Android APK
+build_android.bat
+
+# Manual Flutter commands
+flutter pub get
+flutter build apk --debug
+```
+
 ### Flutter Doctor Output
 
 If `flutter doctor` shows issues, resolve them before building:
